@@ -1,4 +1,4 @@
-# Nya Hub!
+# Nya Hub
 
 The Nya hub is still under construction and will receive substantial updates. No need for you to make any updates; just run the script as usual.
 
