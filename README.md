@@ -16,4 +16,4 @@ loadstring(game:HttpGet(
 
 ---
 
-*You are welcome to change `mercury` to `false` to use the Wally edition of the UI.*
+*You are welcome to change `useMercuryLib` to `false` to use the Wally edition of the UI.*
