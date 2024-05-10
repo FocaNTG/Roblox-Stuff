@@ -10,8 +10,8 @@ Place the following code into your scripting environment & execute it to load th
 local useMercuryLib = true
 
 loadstring(game:HttpGet(
-	useMercuryLib and 'https://raw.githubusercontent.com/FocaNTG/Robloz-Hax/main/ui2.lua' or
-	'https://raw.githubusercontent.com/FocaNTG/Robloz-Hax/main/ui1.lua'))() 
+	useMercuryLib and 'https://raw.githubusercontent.com/FocaNTG/Robloz-Hax/main/libraries/ui-2.lua' or
+	'https://raw.githubusercontent.com/FocaNTG/Robloz-Hax/main/libraries/ui-1.lua'))() 
 ```
 
 ---
