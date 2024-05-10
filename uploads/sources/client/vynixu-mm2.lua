@@ -1,15 +1,19 @@
---	 /$$    /$$                     /$$                    
---	| $$   | $$                    |__/                    
---	| $$   | $$ /$$   /$$ /$$$$$$$  /$$ /$$   /$$ /$$   /$$
---	|  $$ / $$/| $$  | $$| $$__  $$| $$|  $$ /$$/| $$  | $$
---	 \  $$ $$/ | $$  | $$| $$  \ $$| $$ \  $$$$/ | $$  | $$
---	  \  $$$/  | $$  | $$| $$  | $$| $$  >$$  $$ | $$  | $$
---	   \  $/   |  $$$$$$$| $$  | $$| $$ /$$/\  $$|  $$$$$$/
---	    \_/     \____  $$|__/  |__/|__/|__/  \__/ \______/ 
---	            /$$  | $$                                  
---	           |  $$$$$$/                                  
--- 		        \______/   
-                                
+--- @diagnostic disable: undefined-global
+
+--[==[
+	 /$$    /$$                     /$$
+	| $$   | $$                    |__/
+	| $$   | $$ /$$   /$$ /$$$$$$$  /$$ /$$   /$$ /$$   /$$
+	|  $$ / $$/| $$  | $$| $$__  $$| $$|  $$ /$$/| $$  | $$
+	 \  $$ $$/ | $$  | $$| $$  \ $$| $$ \  $$$$/ | $$  | $$
+	  \  $$$/  | $$  | $$| $$  | $$| $$  >$$  $$ | $$  | $$
+	   \  $/   |  $$$$$$$| $$  | $$| $$ /$$/\  $$|  $$$$$$/
+	    \_/     \____  $$|__/  |__/|__/|__/  \__/ \______/
+	            /$$  | $$
+	           |  $$$$$$/
+ 		        \______/
+]==]
+
 local VynixuMM2Script = Instance.new("ScreenGui")
 local Holder = Instance.new("Frame")
 local Top = Instance.new("Frame")
@@ -869,12 +873,12 @@ Underline_20.Text = ""
 Underline_20.TextColor3 = Color3.new(0, 0, 0)
 Underline_20.TextSize = 14
 -- Scripts:
-function SCRIPT_TXVI67_FAKESCRIPT() -- OpenClose.OpenClose 
+function SCRIPT_TXVI67_FAKESCRIPT() -- OpenClose.OpenClose
 	local script = Instance.new('LocalScript')
 	script.Parent = OpenClose
 	local toggle = true
 	local playerListOpen = false
-	
+
 	script.Parent.MouseButton1Click:Connect(function()
 		if toggle == false then
 			toggle = true
@@ -882,34 +886,33 @@ function SCRIPT_TXVI67_FAKESCRIPT() -- OpenClose.OpenClose
 		else
 			toggle = false
 			script.Parent.Rotation = 90
-		end	
-		
-		
+		end
+
+
 		if toggle then
 			script.Parent.Parent.Parent.Parent.Holder:TweenPosition(UDim2.new(1, -350, 1, 0), "Out", "Quart", 0.5)
-			
+
 			if script.Parent.Parent.Parent.PlayerList.Top.OpenClose.Rotation == 0 then
 				playerListOpen = true
 				script.Parent.Parent.Parent.PlayerList:TweenPosition(UDim2.new(0, -25, 0, 0), "Out", "Quart", 0.5)
 			else
 				playerListOpen = false
-			end	
-			
+			end
 		else
 			if playerListOpen == true then
 				script.Parent.Parent.Parent.PlayerList:TweenPosition(UDim2.new(0, -175, 0, 0), "Out", "Quart", 0.5)
-			end					
+			end
 			script.Parent.Parent.Parent.Parent.Holder:TweenPosition(UDim2.new(1, -350, 1, -405), "Out", "Quart", 0.5)
-		end	
+		end
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_TXVI67_FAKESCRIPT))
-function SCRIPT_UWJS74_FAKESCRIPT() -- OpenClose_2.OpenClose 
+function SCRIPT_UWJS74_FAKESCRIPT() -- OpenClose_2.OpenClose
 	local script = Instance.new('LocalScript')
 	script.Parent = OpenClose_2
 	local toggle = false
-	
+
 	script.Parent.MouseButton1Click:Connect(function()
 		if toggle == false then
 			toggle = true
@@ -917,175 +920,151 @@ function SCRIPT_UWJS74_FAKESCRIPT() -- OpenClose_2.OpenClose
 		else
 			toggle = false
 			script.Parent.Rotation = 180
-		end	
-		
-		
-		if not toggle then
-			script.Parent.Parent.Parent:TweenPosition(UDim2.new(0, -25, 0, 0), "Out", "Quart", 0.5)		
-		else				
-			script.Parent.Parent.Parent:TweenPosition(UDim2.new(0, -175, 0, 0), "Out", "Quart", 0.5)
-		end	
-	end)
+		end
 
+
+		if not toggle then
+			script.Parent.Parent.Parent:TweenPosition(UDim2.new(0, -25, 0, 0), "Out", "Quart", 0.5)
+		else
+			script.Parent.Parent.Parent:TweenPosition(UDim2.new(0, -175, 0, 0), "Out", "Quart", 0.5)
+		end
+	end)
 end
+
 coroutine.resume(coroutine.create(SCRIPT_UWJS74_FAKESCRIPT))
-function SCRIPT_HYTP71_FAKESCRIPT() -- Player1.GetPlayerName 
+function SCRIPT_HYTP71_FAKESCRIPT() -- Player1.GetPlayerName
 	local script = Instance.new('LocalScript')
 	script.Parent = Player1
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		if script.Parent.Text ~= "" then
 			script.Parent.Parent.Parent.Parent.Main.PlayerName.Text = script.Parent.Text
 		end
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_HYTP71_FAKESCRIPT))
-function SCRIPT_ZPMH72_FAKESCRIPT() -- Player2.GetPlayerName 
+function SCRIPT_ZPMH72_FAKESCRIPT() -- Player2.GetPlayerName
 	local script = Instance.new('LocalScript')
 	script.Parent = Player2
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		if script.Parent.Text ~= "" then
 			script.Parent.Parent.Parent.Parent.Main.PlayerName.Text = script.Parent.Text
 		end
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_ZPMH72_FAKESCRIPT))
-function SCRIPT_PPKR75_FAKESCRIPT() -- Player3.GetPlayerName 
+function SCRIPT_PPKR75_FAKESCRIPT() -- Player3.GetPlayerName
 	local script = Instance.new('LocalScript')
 	script.Parent = Player3
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		if script.Parent.Text ~= "" then
 			script.Parent.Parent.Parent.Parent.Main.PlayerName.Text = script.Parent.Text
 		end
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_PPKR75_FAKESCRIPT))
-function SCRIPT_MJMP67_FAKESCRIPT() -- Player4.GetPlayerName 
+function SCRIPT_MJMP67_FAKESCRIPT() -- Player4.GetPlayerName
 	local script = Instance.new('LocalScript')
 	script.Parent = Player4
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		if script.Parent.Text ~= "" then
 			script.Parent.Parent.Parent.Parent.Main.PlayerName.Text = script.Parent.Text
 		end
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_MJMP67_FAKESCRIPT))
-function SCRIPT_CYEV85_FAKESCRIPT() -- Player6.GetPlayerName 
+function SCRIPT_CYEV85_FAKESCRIPT() -- Player6.GetPlayerName
 	local script = Instance.new('LocalScript')
 	script.Parent = Player6
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		if script.Parent.Text ~= "" then
 			script.Parent.Parent.Parent.Parent.Main.PlayerName.Text = script.Parent.Text
 		end
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_CYEV85_FAKESCRIPT))
-function SCRIPT_ERRH84_FAKESCRIPT() -- Player5.GetPlayerName 
+function SCRIPT_ERRH84_FAKESCRIPT() -- Player5.GetPlayerName
 	local script = Instance.new('LocalScript')
 	script.Parent = Player5
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		if script.Parent.Text ~= "" then
 			script.Parent.Parent.Parent.Parent.Main.PlayerName.Text = script.Parent.Text
 		end
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_ERRH84_FAKESCRIPT))
-function SCRIPT_FSET86_FAKESCRIPT() -- Player8.GetPlayerName 
+function SCRIPT_FSET86_FAKESCRIPT() -- Player8.GetPlayerName
 	local script = Instance.new('LocalScript')
 	script.Parent = Player8
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		if script.Parent.Text ~= "" then
 			script.Parent.Parent.Parent.Parent.Main.PlayerName.Text = script.Parent.Text
 		end
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_FSET86_FAKESCRIPT))
-function SCRIPT_BGYF75_FAKESCRIPT() -- Player7.GetPlayerName 
+function SCRIPT_BGYF75_FAKESCRIPT() -- Player7.GetPlayerName
 	local script = Instance.new('LocalScript')
 	script.Parent = Player7
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		if script.Parent.Text ~= "" then
 			script.Parent.Parent.Parent.Parent.Main.PlayerName.Text = script.Parent.Text
 		end
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_BGYF75_FAKESCRIPT))
-function SCRIPT_PNRM77_FAKESCRIPT() -- Player10.GetPlayerName 
+function SCRIPT_PNRM77_FAKESCRIPT() -- Player10.GetPlayerName
 	local script = Instance.new('LocalScript')
 	script.Parent = Player10
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		if script.Parent.Text ~= "" then
 			script.Parent.Parent.Parent.Parent.Main.PlayerName.Text = script.Parent.Text
 		end
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_PNRM77_FAKESCRIPT))
-function SCRIPT_MYVX75_FAKESCRIPT() -- Player11.GetPlayerName 
+function SCRIPT_MYVX75_FAKESCRIPT() -- Player11.GetPlayerName
 	local script = Instance.new('LocalScript')
 	script.Parent = Player11
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		if script.Parent.Text ~= "" then
 			script.Parent.Parent.Parent.Parent.Main.PlayerName.Text = script.Parent.Text
 		end
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_MYVX75_FAKESCRIPT))
-function SCRIPT_BFYP71_FAKESCRIPT() -- Player12.GetPlayerName 
+function SCRIPT_BFYP71_FAKESCRIPT() -- Player12.GetPlayerName
 	local script = Instance.new('LocalScript')
 	script.Parent = Player12
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		if script.Parent.Text ~= "" then
 			script.Parent.Parent.Parent.Parent.Main.PlayerName.Text = script.Parent.Text
 		end
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_BFYP71_FAKESCRIPT))
-function SCRIPT_ISFC72_FAKESCRIPT() -- Player9.GetPlayerName 
+function SCRIPT_ISFC72_FAKESCRIPT() -- Player9.GetPlayerName
 	local script = Instance.new('LocalScript')
 	script.Parent = Player9
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		if script.Parent.Text ~= "" then
 			script.Parent.Parent.Parent.Parent.Main.PlayerName.Text = script.Parent.Text
 		end
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_ISFC72_FAKESCRIPT))
-function SCRIPT_OJXE82_FAKESCRIPT() -- Players.GetPlayers 
+function SCRIPT_OJXE82_FAKESCRIPT() -- Players.GetPlayers
 	local script = Instance.new('LocalScript')
 	script.Parent = Players
 	local buttons = {
@@ -1102,65 +1081,67 @@ function SCRIPT_OJXE82_FAKESCRIPT() -- Players.GetPlayers
 		script.Parent.Player11,
 		script.Parent.Player12,
 	}
-	
+
 	for i, v in pairs(game.Players:GetChildren()) do
-	    buttons[i].Text = v.Name
-	    buttons[i].Visible = true
+		buttons[i].Text = v.Name
+		buttons[i].Visible = true
 	end
-	
+
 	game.Players.PlayerRemoving:connect(function()
-		    for i, v in pairs(game.Players:GetChildren()) do
-				buttons[i].Text = v.Name
-				buttons[i].Visible = true
-		    end
-		end)
-		
-	game.Players.PlayerAdded:connect(function()
-	    for i, v in pairs(game.Players:GetChildren()) do
+		for i, v in pairs(game.Players:GetChildren()) do
 			buttons[i].Text = v.Name
-	        buttons[i].Visible = true
-	    end
+			buttons[i].Visible = true
+		end
 	end)
-	
-	for i,v in pairs(script.Parent:GetChildren()) do
+
+	game.Players.PlayerAdded:connect(function()
+		for i, v in pairs(game.Players:GetChildren()) do
+			buttons[i].Text = v.Name
+			buttons[i].Visible = true
+		end
+	end)
+
+	for i, v in pairs(script.Parent:GetChildren()) do
 		if v.Text == "Player" then
 			v.Text = ""
 		end
 	end
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_OJXE82_FAKESCRIPT))
-function SCRIPT_AJZK70_FAKESCRIPT() -- Roles.GetRoles 
+function SCRIPT_AJZK70_FAKESCRIPT() -- Roles.GetRoles
 	local script = Instance.new('LocalScript')
 	script.Parent = Roles
-	while wait(0.5) do	
+	while wait(0.5) do
 		local Players = game:GetService("Players")
-			
+
 		for i, Plr in pairs(Players:GetPlayers()) do
-		    for i, Bp in pairs(Plr:GetChildren()) do
-		        if Bp.Name == "Backpack" then
-		            if Bp:FindFirstChild("Knife") ~= nil then
+			for i, Bp in pairs(Plr:GetChildren()) do
+				if Bp.Name == "Backpack" then
+					if Bp:FindFirstChild("Knife") ~= nil then
 						local playerId = Bp.Parent.UserId
-						script.Parent.Murderer.Image = "https://web.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&Format=Png&userid=".. playerId
-		       		end
-		
+						script.Parent.Murderer.Image =
+						"https://web.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&Format=Png&userid=" .. playerId
+					end
+
 					if Bp:FindFirstChild("Gun") ~= nil then
 						local playerId = Bp.Parent.UserId
-						script.Parent.Sherrif.Image = "https://web.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&Format=Png&userid=".. playerId	
-			        end
-		        end
-		    end
+						script.Parent.Sherrif.Image =
+						"https://web.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&Format=Png&userid=" .. playerId
+					end
+				end
+			end
 		end
 	end
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_AJZK70_FAKESCRIPT))
-function SCRIPT_ZSRN70_FAKESCRIPT() -- CoinFarm.CoinFarm 
+function SCRIPT_ZSRN70_FAKESCRIPT() -- CoinFarm.CoinFarm
 	local script = Instance.new('LocalScript')
 	script.Parent = CoinFarm
 	local toggle = false
-	
-	script.Parent.MouseButton1Click:Connect(function()	
+
+	script.Parent.MouseButton1Click:Connect(function()
 		if toggle == false then
 			toggle = true
 			script.Parent.Underline.BackgroundColor3 = Color3.fromRGB(0, 255, 25)
@@ -1168,36 +1149,35 @@ function SCRIPT_ZSRN70_FAKESCRIPT() -- CoinFarm.CoinFarm
 			toggle = false
 			script.Parent.Underline.BackgroundColor3 = Color3.fromRGB(100, 0, 255)
 		end
-		
-		while toggle do wait(.25)
-			local place = workspace:GetChildren()	
+
+		while toggle do
+			wait(.25)
+			local place = workspace:GetChildren()
 			local currentX = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X
 			local currentY = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y
 			local currentZ = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z
-			
-			for i,v in pairs(place) do	    
-			    local vChildren = v:GetChildren()
-			    for i,child in pairs(vChildren) do
-			        if child.Name == "CoinContainer" then
-			            
+
+			for i, v in pairs(place) do
+				local vChildren = v:GetChildren()
+				for i, child in pairs(vChildren) do
+					if child.Name == "CoinContainer" then
 						if child.Coin_Server:FindFirstChild("Coin") ~= nil then
-				            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = child.Coin_Server.Coin.CFrame
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = child.Coin_Server.Coin.CFrame
 						else
-							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY,
+								currentZ)
 							script.Parent.Underline.BackgroundColor3 = Color3.fromRGB(100, 0, 255)
 							toggle = false
 						end
-			
-			        end
-			    end	
+					end
+				end
 			end
 		end
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_ZSRN70_FAKESCRIPT))
-function SCRIPT_ZXKM71_FAKESCRIPT() -- Fly.Fly 
+function SCRIPT_ZXKM71_FAKESCRIPT() -- Fly.Fly
 	local script = Instance.new('LocalScript')
 	script.Parent = Fly
 	flying = false
@@ -1205,19 +1185,19 @@ function SCRIPT_ZXKM71_FAKESCRIPT() -- Fly.Fly
 	speedget = 1
 	speedfly = 1
 	Mouse = lplayer:GetMouse()
-	
+
 	script.Parent.MouseButton1Click:Connect(function()
 		if flying == false then
 			script.Parent.Underline.BackgroundColor3 = Color3.fromRGB(0, 255, 25)
-			
+
 			repeat wait() until lplayer and lplayer.Character and lplayer.Character:FindFirstChild('HumanoidRootPart') and lplayer.Character:FindFirstChild('Humanoid')
 			repeat wait() until Mouse
-			
+
 			local T = lplayer.Character.HumanoidRootPart
-			local CONTROL = {F = 0, B = 0, L = 0, R = 0}
-			local lCONTROL = {F = 0, B = 0, L = 0, R = 0}
+			local CONTROL = { F = 0, B = 0, L = 0, R = 0 }
+			local lCONTROL = { F = 0, B = 0, L = 0, R = 0 }
 			local SPEED = speedget
-			
+
 			local function fly()
 				flying = true
 				local BG = Instance.new('BodyGyro', T)
@@ -1228,25 +1208,28 @@ function SCRIPT_ZXKM71_FAKESCRIPT() -- Fly.Fly
 				BV.velocity = Vector3.new(0, 0.1, 0)
 				BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
 				spawn(function()
-				repeat wait()
-				lplayer.Character.Humanoid.PlatformStand = true
-				if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
-					SPEED = 50
-				elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
-					SPEED = 0
-				end
-				if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
-					BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-					lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
-				elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
-					BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-				else
-					BV.velocity = Vector3.new(0, 0.1, 0)
-				end
-				BG.cframe = workspace.CurrentCamera.CoordinateFrame
-				until not flying
-					CONTROL = {F = 0, B = 0, L = 0, R = 0}
-					lCONTROL = {F = 0, B = 0, L = 0, R = 0}
+					repeat
+						wait()
+						lplayer.Character.Humanoid.PlatformStand = true
+						if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
+							SPEED = 50
+						elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
+							SPEED = 0
+						end
+						if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
+							BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) *
+							SPEED
+							lCONTROL = { F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R }
+						elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
+							BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) *
+							SPEED
+						else
+							BV.velocity = Vector3.new(0, 0.1, 0)
+						end
+						BG.cframe = workspace.CurrentCamera.CoordinateFrame
+					until not flying
+					CONTROL = { F = 0, B = 0, L = 0, R = 0 }
+					lCONTROL = { F = 0, B = 0, L = 0, R = 0 }
 					SPEED = 0
 					BG:destroy()
 					BV:destroy()
@@ -1259,8 +1242,8 @@ function SCRIPT_ZXKM71_FAKESCRIPT() -- Fly.Fly
 				elseif KEY:lower() == 's' then
 					CONTROL.B = -speedfly
 				elseif KEY:lower() == 'a' then
-					CONTROL.L = -speedfly 
-				elseif KEY:lower() == 'd' then 
+					CONTROL.L = -speedfly
+				elseif KEY:lower() == 'd' then
 					CONTROL.R = speedfly
 				end
 			end)
@@ -1282,21 +1265,20 @@ function SCRIPT_ZXKM71_FAKESCRIPT() -- Fly.Fly
 			lplayer.Character.Humanoid.PlatformStand = false
 		end
 	end)
-	
+
 	Mouse.KeyDown:Connect(function(k)
 		if k == "l" then
-			
 			if flying == false then
 				script.Parent.Underline.BackgroundColor3 = Color3.fromRGB(0, 255, 25)
-				
+
 				repeat wait() until lplayer and lplayer.Character and lplayer.Character:FindFirstChild('HumanoidRootPart') and lplayer.Character:FindFirstChild('Humanoid')
 				repeat wait() until Mouse
-				
+
 				local T = lplayer.Character.HumanoidRootPart
-				local CONTROL = {F = 0, B = 0, L = 0, R = 0}
-				local lCONTROL = {F = 0, B = 0, L = 0, R = 0}
+				local CONTROL = { F = 0, B = 0, L = 0, R = 0 }
+				local lCONTROL = { F = 0, B = 0, L = 0, R = 0 }
 				local SPEED = speedget
-				
+
 				local function fly()
 					flying = true
 					local BG = Instance.new('BodyGyro', T)
@@ -1307,25 +1289,28 @@ function SCRIPT_ZXKM71_FAKESCRIPT() -- Fly.Fly
 					BV.velocity = Vector3.new(0, 0.1, 0)
 					BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
 					spawn(function()
-					repeat wait()
-					lplayer.Character.Humanoid.PlatformStand = true
-					if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
-						SPEED = 50
-					elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
-						SPEED = 0
-					end
-					if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
-						BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-						lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
-					elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
-						BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-					else
-						BV.velocity = Vector3.new(0, 0.1, 0)
-					end
-					BG.cframe = workspace.CurrentCamera.CoordinateFrame
-					until not flying
-						CONTROL = {F = 0, B = 0, L = 0, R = 0}
-						lCONTROL = {F = 0, B = 0, L = 0, R = 0}
+						repeat
+							wait()
+							lplayer.Character.Humanoid.PlatformStand = true
+							if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
+								SPEED = 50
+							elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
+								SPEED = 0
+							end
+							if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
+								BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) *
+								SPEED
+								lCONTROL = { F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R }
+							elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
+								BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) *
+								SPEED
+							else
+								BV.velocity = Vector3.new(0, 0.1, 0)
+							end
+							BG.cframe = workspace.CurrentCamera.CoordinateFrame
+						until not flying
+						CONTROL = { F = 0, B = 0, L = 0, R = 0 }
+						lCONTROL = { F = 0, B = 0, L = 0, R = 0 }
 						SPEED = 0
 						BG:destroy()
 						BV:destroy()
@@ -1338,8 +1323,8 @@ function SCRIPT_ZXKM71_FAKESCRIPT() -- Fly.Fly
 					elseif KEY:lower() == 's' then
 						CONTROL.B = -speedfly
 					elseif KEY:lower() == 'a' then
-						CONTROL.L = -speedfly 
-					elseif KEY:lower() == 'd' then 
+						CONTROL.L = -speedfly
+					elseif KEY:lower() == 'd' then
 						CONTROL.R = speedfly
 					end
 				end)
@@ -1360,79 +1345,66 @@ function SCRIPT_ZXKM71_FAKESCRIPT() -- Fly.Fly
 				script.Parent.Underline.BackgroundColor3 = Color3.fromRGB(100, 0, 255)
 				lplayer.Character.Humanoid.PlatformStand = false
 			end
-			
 		end
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_ZXKM71_FAKESCRIPT))
-function SCRIPT_MMKD76_FAKESCRIPT() -- GunDropGrabber.GunDropGrabber 
+function SCRIPT_MMKD76_FAKESCRIPT() -- GunDropGrabber.GunDropGrabber
 	local script = Instance.new('LocalScript')
 	script.Parent = GunDropGrabber
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		local currentX = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X
 		local currentY = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y
-		local currentZ = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z	
-		
-		if workspace:FindFirstChild("GunDrop") ~= nil then
-		
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("GunDrop").CFrame	
-		wait(.25)	
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
-			
-		else
-			
-			script.Parent.Parent.ErrorLabel.Text = "There's no gun to grab yet, wait for the sherrif to die"
-		
-		wait(3)
-			
-			script.Parent.Parent.ErrorLabel.Text = ""
-			
-		end
-			
-	end)
+		local currentZ = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z
 
+		if workspace:FindFirstChild("GunDrop") ~= nil then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("GunDrop").CFrame
+			wait(.25)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
+		else
+			script.Parent.Parent.ErrorLabel.Text = "There's no gun to grab yet, wait for the sherrif to die"
+
+			wait(3)
+
+			script.Parent.Parent.ErrorLabel.Text = ""
+		end
+	end)
 end
+
 coroutine.resume(coroutine.create(SCRIPT_MMKD76_FAKESCRIPT))
-function SCRIPT_MOWM88_FAKESCRIPT() -- KillAll.KillAll 
+function SCRIPT_MOWM88_FAKESCRIPT() -- KillAll.KillAll
 	local script = Instance.new('LocalScript')
 	script.Parent = KillAll
 	script.Parent.MouseButton1Click:Connect(function(input)
-	
 		if game.Players.LocalPlayer.Backpack:FindFirstChild("Knife") ~= nil then -- Only works if you're the murderer
-	
-	    	local Players = game:GetService("Players")	
-		    for i, Victim in pairs(Players:GetPlayers()) do
-		        if Victim.Name ~= game.Players.LocalPlayer.Name then
-		
-		            repeat wait()
-		                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Victim.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 1)
-		            until
-		                Victim.Character.Humanoid.Health == 0
-		
-		        end
-		    end
-		
+			local Players = game:GetService("Players")
+			for i, Victim in pairs(Players:GetPlayers()) do
+				if Victim.Name ~= game.Players.LocalPlayer.Name then
+					repeat
+						wait()
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Victim.Character.HumanoidRootPart
+						.CFrame * CFrame.new(0, 0, 1)
+					until
+						Victim.Character.Humanoid.Health == 0
+				end
+			end
 		else
-		
-		    script.Parent.Parent.ErrorLabel.Text = "You need to be murderer in order to do this"
-		
-		wait(3)
-		
-			script.Parent.Parent.ErrorLabel.Text = ""
-		
-		end
-	
-	end)
+			script.Parent.Parent.ErrorLabel.Text = "You need to be murderer in order to do this"
 
+			wait(3)
+
+			script.Parent.Parent.ErrorLabel.Text = ""
+		end
+	end)
 end
+
 coroutine.resume(coroutine.create(SCRIPT_MOWM88_FAKESCRIPT))
-function SCRIPT_FZXM74_FAKESCRIPT() -- MurdererESP.MurdererESP 
+function SCRIPT_FZXM74_FAKESCRIPT() -- MurdererESP.MurdererESP
 	local script = Instance.new('LocalScript')
 	script.Parent = MurdererESP
 	local toggle = false
-	
+
 	script.Parent.MouseButton1Click:Connect(function()
 		if toggle == false then
 			toggle = true
@@ -1441,23 +1413,24 @@ function SCRIPT_FZXM74_FAKESCRIPT() -- MurdererESP.MurdererESP
 			toggle = false
 			script.Parent.Underline.BackgroundColor3 = Color3.fromRGB(100, 0, 255)
 		end
-			
-		
-		while toggle do wait(.1)		
+
+
+		while toggle do
+			wait(.1)
 			local Players = game:GetService("Players")
-			
+
 			for i, Plr in pairs(Players:GetPlayers()) do
-			    for i, Bp in pairs(Plr:GetChildren()) do
-			        if Bp.Name == "Backpack" then
-			            if Bp:FindFirstChild("Knife") ~= nil then
+				for i, Bp in pairs(Plr:GetChildren()) do
+					if Bp.Name == "Backpack" then
+						if Bp:FindFirstChild("Knife") ~= nil then
 							if Bp.Parent.Character.UpperTorso:FindFirstChild("BoxHandleAdornment") == nil then
-				                local box = Instance.new("BoxHandleAdornment", Bp.Parent.Character.UpperTorso)
+								local box = Instance.new("BoxHandleAdornment", Bp.Parent.Character.UpperTorso)
 								box.Size = Bp.Parent.Character.UpperTorso.Size
 								box.Adornee = Bp.Parent.Character.UpperTorso
 								box.ZIndex = 5
 								box.AlwaysOnTop = true
 								box.Color3 = Color3.fromRGB(255, 0, 25)
-								
+
 								local at0 = Instance.new("Attachment", game.Players.LocalPlayer.Character.UpperTorso)
 								local at1 = Instance.new("Attachment", Bp.Parent.Character.UpperTorso)
 								local beam = Instance.new("Beam", game.Players.LocalPlayer.Character)
@@ -1468,47 +1441,47 @@ function SCRIPT_FZXM74_FAKESCRIPT() -- MurdererESP.MurdererESP
 								beam.Attachment0 = at0
 								beam.Attachment1 = at1
 							end
-			            end
-			        end
-			    end
+						end
+					end
+				end
 			end
 		end
-		
-		
-		while toggle == false do wait()		
+
+
+		while toggle == false do
+			wait()
 			local Players = game:GetService("Players")
-			
+
 			for i, Plr in pairs(Players:GetPlayers()) do
-			    for i, Bp in pairs(Plr:GetChildren()) do
-			        if Bp.Name == "Backpack" then
-			            if Bp:FindFirstChild("Knife") ~= nil then
+				for i, Bp in pairs(Plr:GetChildren()) do
+					if Bp.Name == "Backpack" then
+						if Bp:FindFirstChild("Knife") ~= nil then
 							if Bp.Parent.Character.UpperTorso:FindFirstChild("BoxHandleAdornment") ~= nil then
 								Bp.Parent.Character.UpperTorso:FindFirstChild("BoxHandleAdornment"):Destroy()
-								
 							elseif game.Players.LocalPlayer.Character:FindFirstChild("Beam") ~= nil then
 								game.Players.LocalPlayer.Character:FindFirstChild("Beam"):Destroy()
 							end
-			            end
-			        end
-			    end
-			end	
+						end
+					end
+				end
+			end
 		end
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_FZXM74_FAKESCRIPT))
-function SCRIPT_GVGT66_FAKESCRIPT() -- Noclip.Noclip 
+function SCRIPT_GVGT66_FAKESCRIPT() -- Noclip.Noclip
 	local script = Instance.new('LocalScript')
 	script.Parent = Noclip
 	noclip = false
 	local Mouse = game.Players.LocalPlayer:GetMouse()
-	
+
 	game:GetService('RunService').Stepped:connect(function()
 		if noclip then
 			game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 		end
 	end)
-	
+
 	script.Parent.MouseButton1Down:connect(function()
 		noclip = not noclip
 		if noclip then
@@ -1517,27 +1490,25 @@ function SCRIPT_GVGT66_FAKESCRIPT() -- Noclip.Noclip
 			script.Parent.Underline.BackgroundColor3 = Color3.fromRGB(100, 0, 255)
 		end
 	end)
-	
+
 	Mouse.KeyDown:Connect(function(k)
 		if k == "b" then
-			
 			noclip = not noclip
 			if noclip then
 				script.Parent.Underline.BackgroundColor3 = Color3.fromRGB(0, 255, 25)
 			else
 				script.Parent.Underline.BackgroundColor3 = Color3.fromRGB(100, 0, 255)
 			end
-			
-		end	
+		end
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_GVGT66_FAKESCRIPT))
-function SCRIPT_CTQL79_FAKESCRIPT() -- SherrifESP.SherrifESP 
+function SCRIPT_CTQL79_FAKESCRIPT() -- SherrifESP.SherrifESP
 	local script = Instance.new('LocalScript')
 	script.Parent = SherrifESP
 	local toggle = false
-	
+
 	script.Parent.MouseButton1Click:Connect(function()
 		if toggle == false then
 			toggle = true
@@ -1546,23 +1517,24 @@ function SCRIPT_CTQL79_FAKESCRIPT() -- SherrifESP.SherrifESP
 			toggle = false
 			script.Parent.Underline.BackgroundColor3 = Color3.fromRGB(100, 0, 255)
 		end
-			
-		
-		while toggle do wait(.1)		
+
+
+		while toggle do
+			wait(.1)
 			local Players = game:GetService("Players")
-			
+
 			for i, Plr in pairs(Players:GetPlayers()) do
-			    for i, Bp in pairs(Plr:GetChildren()) do
-			        if Bp.Name == "Backpack" then
-			            if Bp:FindFirstChild("Gun") ~= nil then
+				for i, Bp in pairs(Plr:GetChildren()) do
+					if Bp.Name == "Backpack" then
+						if Bp:FindFirstChild("Gun") ~= nil then
 							if Bp.Parent.Character.UpperTorso:FindFirstChild("BoxHandleAdornment") == nil then
-				                local box = Instance.new("BoxHandleAdornment", Bp.Parent.Character.UpperTorso)
+								local box = Instance.new("BoxHandleAdornment", Bp.Parent.Character.UpperTorso)
 								box.Size = Bp.Parent.Character.UpperTorso.Size
 								box.Adornee = Bp.Parent.Character.UpperTorso
 								box.ZIndex = 5
 								box.AlwaysOnTop = true
 								box.Color3 = Color3.fromRGB(0, 50, 255)
-								
+
 								local at0 = Instance.new("Attachment", game.Players.LocalPlayer.Character.UpperTorso)
 								local at1 = Instance.new("Attachment", Bp.Parent.Character.UpperTorso)
 								local beam = Instance.new("Beam", game.Players.LocalPlayer.Character)
@@ -1573,41 +1545,41 @@ function SCRIPT_CTQL79_FAKESCRIPT() -- SherrifESP.SherrifESP
 								beam.Attachment0 = at0
 								beam.Attachment1 = at1
 							end
-			            end
-			        end
-			    end
+						end
+					end
+				end
 			end
 		end
-		
-		
-		while toggle == false do wait()		
+
+
+		while toggle == false do
+			wait()
 			local Players = game:GetService("Players")
-			
+
 			for i, Plr in pairs(Players:GetPlayers()) do
-			    for i, Bp in pairs(Plr:GetChildren()) do
-			        if Bp.Name == "Backpack" then
-			            if Bp:FindFirstChild("Gun") ~= nil then
+				for i, Bp in pairs(Plr:GetChildren()) do
+					if Bp.Name == "Backpack" then
+						if Bp:FindFirstChild("Gun") ~= nil then
 							if Bp.Parent.Character.UpperTorso:FindFirstChild("BoxHandleAdornment") ~= nil then
 								Bp.Parent.Character.UpperTorso:FindFirstChild("BoxHandleAdornment"):Destroy()
-								
 							elseif game.Players.LocalPlayer.Character:FindFirstChild("Beam") ~= nil then
 								game.Players.LocalPlayer.Character:FindFirstChild("Beam"):Destroy()
 							end
-			            end
-			        end
-			    end
-			end	
+						end
+					end
+				end
+			end
 		end
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_CTQL79_FAKESCRIPT))
-function SCRIPT_SUEV76_FAKESCRIPT() -- ShowNames.ShowNames 
+function SCRIPT_SUEV76_FAKESCRIPT() -- ShowNames.ShowNames
 	local script = Instance.new('LocalScript')
 	script.Parent = ShowNames
 	local toggle = false
 	local db = false
-	
+
 	script.Parent.MouseButton1Click:Connect(function()
 		if toggle == false then
 			toggle = true
@@ -1616,11 +1588,11 @@ function SCRIPT_SUEV76_FAKESCRIPT() -- ShowNames.ShowNames
 			toggle = false
 			script.Parent.ActiveFrame.Visible = false
 		end
-		
-		
-		while db == false do wait(.25)
+
+
+		while db == false do
+			wait(.25)
 			if toggle then
-				
 				if game.StarterPlayer.NameDisplayDistance ~= 100 then
 					game.StarterPlayer.NameDisplayDistance = 100
 					db = true
@@ -1629,143 +1601,129 @@ function SCRIPT_SUEV76_FAKESCRIPT() -- ShowNames.ShowNames
 					db = false
 					toggle = false
 				end
-				
 			end
 		end
-			
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_SUEV76_FAKESCRIPT))
-function SCRIPT_BKLO89_FAKESCRIPT() -- TPtoLobby.TPLobby 
+function SCRIPT_BKLO89_FAKESCRIPT() -- TPtoLobby.TPLobby
 	local script = Instance.new('LocalScript')
 	script.Parent = TPtoLobby
 	script.Parent.MouseButton1Click:Connect(function()
-		
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-108.5, 145, 0.6)
-		
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_BKLO89_FAKESCRIPT))
-function SCRIPT_XMKA81_FAKESCRIPT() -- TPtoMap.TPtoMap 
+function SCRIPT_XMKA81_FAKESCRIPT() -- TPtoMap.TPtoMap
 	local script = Instance.new('LocalScript')
 	script.Parent = TPtoMap
-	script.Parent.MouseButton1Click:Connect(function()	
+	script.Parent.MouseButton1Click:Connect(function()
 		local Workplace = workspace:GetChildren()
-		
+
 		for i, Thing in pairs(Workplace) do
-		
-		    local ThingChildren = Thing:GetChildren()
-		    for i, Child in pairs(ThingChildren) do
-		        if Child.Name == "Spawns" then
-		           
-		           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Child.Spawn.CFrame
-		
-		        end
-		    end
+			local ThingChildren = Thing:GetChildren()
+			for i, Child in pairs(ThingChildren) do
+				if Child.Name == "Spawns" then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Child.Spawn.CFrame
+				end
+			end
 		end
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_XMKA81_FAKESCRIPT))
-function SCRIPT_KCFZ83_FAKESCRIPT() -- TPtoMuderer.TPtoMuderer 
+function SCRIPT_KCFZ83_FAKESCRIPT() -- TPtoMuderer.TPtoMuderer
 	local script = Instance.new('LocalScript')
 	script.Parent = TPtoMuderer
-	script.Parent.MouseButton1Click:Connect(function()	
-		local Players = game:GetService("Players")			
+	script.Parent.MouseButton1Click:Connect(function()
+		local Players = game:GetService("Players")
 		for i, player in pairs(Players:GetPlayers()) do
-			
-		    local bp = player.Backpack:GetChildren()
-		    for i, tool in pairs(bp) do
-		        if tool.Name == "Knife" then
-												
-			    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[tool.Parent.Parent.Name].Character.HumanoidRootPart.CFrame
-			
+			local bp = player.Backpack:GetChildren()
+			for i, tool in pairs(bp) do
+				if tool.Name == "Knife" then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[tool.Parent.Parent.Name]
+					.Character.HumanoidRootPart.CFrame
 				end
 			end
-		
 		end
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_KCFZ83_FAKESCRIPT))
-function SCRIPT_AGFB74_FAKESCRIPT() -- TPtoPlayer.TPtoPlayer 
+function SCRIPT_AGFB74_FAKESCRIPT() -- TPtoPlayer.TPtoPlayer
 	local script = Instance.new('LocalScript')
 	script.Parent = TPtoPlayer
-	script.Parent.MouseButton1Click:Connect(function()	
-	
+	script.Parent.MouseButton1Click:Connect(function()
 		local Victim = script.Parent.Parent.PlayerName.Text
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[Victim].Character.HumanoidRootPart.CFrame 
-	
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[Victim].Character.HumanoidRootPart
+		.CFrame
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_AGFB74_FAKESCRIPT))
-function SCRIPT_HFLO69_FAKESCRIPT() -- TPtoSherrif.TPtoSherrif 
+function SCRIPT_HFLO69_FAKESCRIPT() -- TPtoSherrif.TPtoSherrif
 	local script = Instance.new('LocalScript')
 	script.Parent = TPtoSherrif
-	script.Parent.MouseButton1Click:Connect(function()	
-		local Players = game:GetService("Players")			
+	script.Parent.MouseButton1Click:Connect(function()
+		local Players = game:GetService("Players")
 		for i, player in pairs(Players:GetPlayers()) do
-			
-		    local bp = player.Backpack:GetChildren()
-		    for i, tool in pairs(bp) do
-		        if tool.Name == "Gun" then
-												
-			    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[tool.Parent.Parent.Name].Character.HumanoidRootPart.CFrame
-			
+			local bp = player.Backpack:GetChildren()
+			for i, tool in pairs(bp) do
+				if tool.Name == "Gun" then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[tool.Parent.Parent.Name]
+					.Character.HumanoidRootPart.CFrame
 				end
 			end
-		
 		end
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_HFLO69_FAKESCRIPT))
-function SCRIPT_QSMY75_FAKESCRIPT() -- Walkspeed.Walkspeed 
+function SCRIPT_QSMY75_FAKESCRIPT() -- Walkspeed.Walkspeed
 	local script = Instance.new('LocalScript')
 	script.Parent = Walkspeed
-	script.Parent.MouseButton1Down:connect(function()	
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = script.Parent.Parent.WSInput.Text	
+	script.Parent.MouseButton1Down:connect(function()
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = script.Parent.Parent.WSInput.Text
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_QSMY75_FAKESCRIPT))
-function SCRIPT_OPBW78_FAKESCRIPT() -- JumpPower.JumpPower 
+function SCRIPT_OPBW78_FAKESCRIPT() -- JumpPower.JumpPower
 	local script = Instance.new('LocalScript')
 	script.Parent = JumpPower
-	script.Parent.MouseButton1Down:connect(function()	
-		game.Players.LocalPlayer.Character.Humanoid.JumpPower = script.Parent.Parent.JPInput.Text	
+	script.Parent.MouseButton1Down:connect(function()
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = script.Parent.Parent.JPInput.Text
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_OPBW78_FAKESCRIPT))
-function SCRIPT_MVXU65_FAKESCRIPT() -- WSReset.WSReset 
+function SCRIPT_MVXU65_FAKESCRIPT() -- WSReset.WSReset
 	local script = Instance.new('LocalScript')
 	script.Parent = WSReset
-	script.Parent.MouseButton1Down:connect(function()	
+	script.Parent.MouseButton1Down:connect(function()
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-		script.Parent.Parent.WSInput.Text = ""	
+		script.Parent.Parent.WSInput.Text = ""
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_MVXU65_FAKESCRIPT))
-function SCRIPT_PMUA78_FAKESCRIPT() -- JPReset.JPReset 
+function SCRIPT_PMUA78_FAKESCRIPT() -- JPReset.JPReset
 	local script = Instance.new('LocalScript')
 	script.Parent = JPReset
-	script.Parent.MouseButton1Down:connect(function()	
+	script.Parent.MouseButton1Down:connect(function()
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 48
 		script.Parent.Parent.JPInput.Text = ""
 	end)
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_PMUA78_FAKESCRIPT))
-function SCRIPT_HGEW74_FAKESCRIPT() -- Main.Auto Positioning 
-	local script = Instance.new('LocalScript')
-	script.Parent = Main
-	script.Parent.Parent.Position  = UDim2.new(1, -350, 1, 0)
+function SCRIPT_HGEW74_FAKESCRIPT() -- Main.Auto Positioning
+	local script                  = Instance.new('LocalScript')
+	script.Parent                 = Main
+	script.Parent.Parent.Position = UDim2.new(1, -350, 1, 0)
 	script:Destroy()
-
 end
+
 coroutine.resume(coroutine.create(SCRIPT_HGEW74_FAKESCRIPT))

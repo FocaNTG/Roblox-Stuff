@@ -1,29 +1,34 @@
--- arsenal aimbot and esp :)
+--- @diagnostic disable: undefined-global, need-check-nil, undefined-field, lowercase-global
+--- Arsenal Aimbot & ESP
+--- Simple `_G` check to prevent multiple instances of the script.
+if _G.arsenal_aimbot_esp then return end
+_G.arsenal_aimbot_esp = true
 
 local plrs = game:GetService("Players")
-local TeamBased = true ; local teambasedswitch = "o"
-local presskeytoaim = true; local aimkey = "x"
+local player = plrs.LocalPlayer
+local TeamBased = true
+
+--- Change this value to `true` if you'd like to see the UI.
+--- The UI only provides information on how to use the script.
+--- @type boolean
+local gui_enabled = false
+local teambasedswitch = 'o'
+local aimkey = 'x'
 local raycast = false
+local espupdatetime = 5
+local autoesp = false
 
-local espupdatetime = 5; autoesp = false
+--[==[
+function findwat(folder, what)
+	for i, smth in pairs(folder:GetChildren()) do
+		if string.find(string.lower(tostring(smth)), string.lower(what)) then
+			return smth
+		end
+	end
+end
 
-
-
-local lockaim = true; local lockangle = 5
-
-
-
---function findwat(folder, what)
---	for i, smth in pairs(folder:GetChildren()) do
---		if string.find(string.lower(tostring(smth)), string.lower(what)) then
---			return smth
---		end
---	end
---end
---
---local plrs = findwat(game, "Players")
-
-
+local plrs = findwat(game, "Players")
+]==]
 
 local Gui = Instance.new("ScreenGui")
 local Move = Instance.new("Frame")
@@ -33,10 +38,9 @@ local st1 = Instance.new("TextLabel")
 local st1_2 = Instance.new("TextLabel")
 local st1_3 = Instance.new("TextLabel")
 local Name = Instance.new("TextLabel")
---Properties:
+
 Gui.Name = "Gui"
-Gui.Parent = plrs.LocalPlayer:WaitForChild("PlayerGui")
-Gui.Enabled = false
+Gui.Parent = player:WaitForChild("PlayerGui")
 
 Move.Name = "Move"
 Move.Parent = Gui
@@ -45,7 +49,6 @@ Move.BackgroundTransparency = 1
 Move.BorderSizePixel = 0
 Move.Draggable = true
 Move.Position = UDim2.new(0.005, 0, -0.15, 0)
-Move.Transparency = 1
 Move.Size = UDim2.new(0.28141585, 0, 0.0320388414, 0)
 
 Main.Name = "Main"
@@ -53,7 +56,6 @@ Main.Parent = Move
 Main.BackgroundColor3 = Color3.new(1, 1, 1)
 Main.Position = UDim2.new(0, -7, 20.9960003, 0)
 Main.Size = UDim2.new(1, 0, 5.79699993, 0)
-Main.Transparency = 1
 Main.Style = Enum.FrameStyle.RobloxSquare
 
 EspStatus.Name = "EspStatus"
@@ -80,7 +82,6 @@ st1.TextColor3 = Color3.new(0.0784314, 0.541176, 0)
 st1.TextScaled = true
 st1.TextSize = 14
 st1.TextWrapped = true
-st1.Transparency = 1
 
 st1_2.Name = "st1"
 st1_2.Parent = Main
@@ -89,11 +90,10 @@ st1_2.BackgroundTransparency = 1
 st1_2.Position = UDim2.new(0, 0, 0.875999987, 0)
 st1_2.Size = UDim2.new(0.999999881, 0, 0.161862016, 0)
 st1_2.Font = Enum.Font.ArialBold
-st1_2.Text = "Press E to lock on a person inside ur view"
+st1_2.Text = "Press X to lock on a person inside ur view"
 st1_2.TextColor3 = Color3.new(0.6, 0.196078, 0.8)
 st1_2.TextScaled = true
 st1_2.TextWrapped = true
-st1_2.Transparency = 1
 
 st1_3.Name = "st1"
 st1_3.Parent = Main
@@ -106,7 +106,6 @@ st1_3.Text = "Press L to enable esp loop and press T to update esp"
 st1_3.TextColor3 = Color3.new(0.6, 0.196078, 0.8)
 st1_3.TextScaled = true
 st1_3.TextWrapped = true
-st1_3.Transparency = 1
 
 
 Name.Name = "Name"
@@ -121,22 +120,22 @@ Name.TextColor3 = Color3.new(0.541176, 0.168627, 0.886275)
 Name.TextScaled = true
 Name.TextSize = 12
 Name.TextWrapped = true
-Name.Transparency = 1
 -- Scripts:
 
 
 local plrsforaim = {}
-
-local lplr = game:GetService("Players").LocalPlayer
 Move.Draggable = true
-Gui.ResetOnSpawn = false
-Gui.Name = "Chat"
-Gui.DisplayOrder = 999
 
-	Gui.Parent = plrs.LocalPlayer.PlayerGui
+if gui_enabled then
+	Gui.ResetOnSpawn = false
+	Gui.Name = "Chat"
+	Gui.DisplayOrder = 999
+	Gui.Parent = player.PlayerGui
+else
+	Gui:Destroy()
+end
 
-
-f = {}
+local f = {}
 local espforlder
 
 f.addesp = function()
@@ -152,23 +151,23 @@ f.addesp = function()
 	for _, plr in pairs(plrs:GetChildren()) do
 		if plr.Character and plr.Character.Humanoid.Health > 0 and plr.Name ~= lplr.Name then
 			if TeamBased == true then
-				if plr.Team.Name ~= plrs.LocalPlayer.Team.Name  then
+				if plr.Team.Name ~= player.Team.Name then
 					local e = espforlder:FindFirstChild(plr.Name)
 					if not e then
 						--print("Added esp for team based")
 						local bill = Instance.new("BillboardGui", espforlder)
 						bill.Name = plr.Name
 						bill.AlwaysOnTop = true
-						bill.Size = UDim2.new(1,0,1,0)
+						bill.Size = UDim2.new(1, 0, 1, 0)
 						bill.Adornee = plr.Character.Head
-						local Frame = Instance.new('Frame',bill)
+						local Frame = Instance.new('Frame', bill)
 						Frame.Active = true
 						Frame.BackgroundColor3 = Color3.new(0.541176, 0.168627, 0.886275)
 						Frame.BackgroundTransparency = 0
 						Frame.BorderSizePixel = 0
 						Frame.AnchorPoint = Vector2.new(.5, .5)
-						Frame.Position = UDim2.new (0.5,0,0.5,0)
-						Frame.Size = UDim2.new (1,0,1,0)
+						Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+						Frame.Size = UDim2.new(1, 0, 1, 0)
 						Frame.Rotation = 0
 						plr.Character.Humanoid.Died:Connect(function()
 							bill:Destroy()
@@ -182,24 +181,22 @@ f.addesp = function()
 					local bill = Instance.new("BillboardGui", espforlder)
 					bill.Name = plr.Name
 					bill.AlwaysOnTop = true
-					bill.Size = UDim2.new(1,0,1,0)
+					bill.Size = UDim2.new(1, 0, 1, 0)
 					bill.Adornee = plr.Character.Head
-					local Frame = Instance.new('Frame',bill)
+					local Frame = Instance.new('Frame', bill)
 					Frame.Active = true
 					Frame.BackgroundColor3 = Color3.new(0.541176, 0.168627, 0.886275)
 					Frame.BackgroundTransparency = 0.3
 					Frame.BorderSizePixel = 0
 					Frame.AnchorPoint = Vector2.new(.5, .5)
-					Frame.Position = UDim2.new (0.5,0,0.5,0)
-					Frame.Size = UDim2.new (1,0,1,0)
+					Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+					Frame.Size = UDim2.new(1, 0, 1, 0)
 					Frame.Rotation = 0
 					plr.Character.Humanoid.Died:Connect(function()
 						bill:Destroy()
 					end)
 				end
 			end
-
-
 		end
 	end
 end
@@ -263,14 +260,14 @@ mouse.KeyDown:Connect(function(a)
 						end
 					else
 						local an = checkfov(plr.Character.Head)
-							if an < maxangle then
-								maxangle = an
-								aimatpart = plr.Character.Head
-							end
-							print(plr)
+						if an < maxangle then
+							maxangle = an
+							aimatpart = plr.Character.Head
+						end
+						print(plr)
 					end
 					plr.Character.Humanoid.Died:Connect(function()
-						if aimatpart.Parent == plr.Character or aimatpart == nil then
+						if typeof(aimatpart) == 'Instance' and aimatpart.Parent == plr.Character or aimatpart == nil then
 							aimatpart = nil
 						end
 					end)
@@ -282,7 +279,7 @@ mouse.KeyDown:Connect(function(a)
 	end
 end)
 
-function getfovxyz (p0, p1, deg)
+function getfovxyz(p0, p1, deg)
 	local x1, y1, z1 = p0:ToOrientation()
 	local cf = CFrame.new(p0.p, p1.p)
 	local x2, y2, z2 = cf:ToOrientation()
@@ -290,7 +287,7 @@ function getfovxyz (p0, p1, deg)
 	if deg then
 		--return Vector3.new(d(x1-x2), d(y1-y2), d(z1-z2))
 	else
-		return Vector3.new((x1-x2), (y1-y2), (z1-z2))
+		return Vector3.new((x1 - x2), (y1 - y2), (z1 - z2))
 	end
 end
 
@@ -298,15 +295,14 @@ function getaimbotplrs()
 	plrsforaim = {}
 	for i, plr in pairs(plrs:GetChildren()) do
 		if plr.Character and plr.Character.Humanoid and plr.Character.Humanoid.Health > 0 and plr.Name ~= lplr.Name and plr.Character.Head then
-
 			if TeamBased == true then
 				if plr.Team.Name ~= lplr.Team.Name then
 					local cf = CFrame.new(game.Workspace.CurrentCamera.CFrame.p, plr.Character.Head.CFrame.p)
 					local r = Ray.new(cf, cf.LookVector * 10000)
 					local ign = {}
-					for i, v in pairs(plrs.LocalPlayer.Character:GetChildren()) do
+					for i, v in pairs(player.Character:GetChildren()) do
 						if v:IsA("BasePart") then
-							table.insert(ign , v)
+							table.insert(ign, v)
 						end
 					end
 					local obj = game.Workspace:FindPartOnRayWithIgnoreList(r, ign)
@@ -318,9 +314,9 @@ function getaimbotplrs()
 				local cf = CFrame.new(game.Workspace.CurrentCamera.CFrame.p, plr.Character.Head.CFrame.p)
 				local r = Ray.new(cf, cf.LookVector * 10000)
 				local ign = {}
-				for i, v in pairs(plrs.LocalPlayer.Character:GetChildren()) do
+				for i, v in pairs(player.Character:GetChildren()) do
 					if v:IsA("BasePart") then
-						table.insert(ign , v)
+						table.insert(ign, v)
 					end
 				end
 				local obj = game.Workspace:FindPartOnRayWithIgnoreList(r, ign)
@@ -328,8 +324,6 @@ function getaimbotplrs()
 					table.insert(plrsforaim, obj)
 				end
 			end
-
-
 		end
 	end
 end
@@ -337,7 +331,8 @@ end
 function aimat(part)
 	cam.CFrame = CFrame.new(cam.CFrame.p, part.CFrame.p)
 end
-function checkfov (part)
+
+function checkfov(part)
 	local fov = getfovxyz(game.Workspace.CurrentCamera.CFrame, part.CFrame)
 	local angle = math.abs(fov.X) + math.abs(fov.Y)
 	return angle
@@ -346,75 +341,74 @@ end
 game:GetService("RunService").RenderStepped:Connect(function()
 	if aimatpart then
 		aimat(aimatpart)
-		if aimatpart.Parent == plrs.LocalPlayer.Character then
+		if aimatpart.Parent == player.Character then
 			aimatpart = nil
 		end
 	end
 
 
---	if switch == true then
---		local maxangle = 99999
---
---		--print("Loop")
---		if true and raycast == false then
---			for i, plr in pairs(plrs:GetChildren()) do
---				if plr.Name ~= lplr.Name and plr.Character and plr.Character.Head and plr.Character.Humanoid and plr.Character.Humanoid.Health > 1 then
---					if TeamBased then
---						if plr.Team.Name ~= lplr.Team.Name or plr.Team.TeamColor ~= lplr.Team.TeamColor then
---							local an = checkfov(plr.Character.Head)
---							if an < maxangle then
---								maxangle = an
---								aimatpart = plr.Character.Head
---								if an < lockangle then
---									break
---								end
---							end
---						end
---					else
---						local an = checkfov(plr.Character.Head)
---							if an < maxangle then
---								maxangle = an
---								aimatpart = plr.Character.Head
---								if an < lockangle then
---									break
---								end
---							end
---					end
---
---
---
---
---				end
---			end
---		elseif raycast == true then
---
---		end
+	--	if switch == true then
+	--		local maxangle = 99999
+	--
+	--		--print("Loop")
+	--		if true and raycast == false then
+	--			for i, plr in pairs(plrs:GetChildren()) do
+	--				if plr.Name ~= lplr.Name and plr.Character and plr.Character.Head and plr.Character.Humanoid and plr.Character.Humanoid.Health > 1 then
+	--					if TeamBased then
+	--						if plr.Team.Name ~= lplr.Team.Name or plr.Team.TeamColor ~= lplr.Team.TeamColor then
+	--							local an = checkfov(plr.Character.Head)
+	--							if an < maxangle then
+	--								maxangle = an
+	--								aimatpart = plr.Character.Head
+	--								if an < lockangle then
+	--									break
+	--								end
+	--							end
+	--						end
+	--					else
+	--						local an = checkfov(plr.Character.Head)
+	--							if an < maxangle then
+	--								maxangle = an
+	--								aimatpart = plr.Character.Head
+	--								if an < lockangle then
+	--									break
+	--								end
+	--							end
+	--					end
+	--
+	--
+	--
+	--
+	--				end
+	--			end
+	--		elseif raycast == true then
+	--
+	--		end
 
-		if raycast == true and switch == false and not aimatpart then
-			getaimbotplrs()
-			aimatpart = nil
-			local maxangle = 999
-			for i, v in ipairs(plrsforaim) do
-				if v.Parent ~= lplr.Character then
-					local an = checkfov(v)
-					if an < maxangle and v ~= lplr.Character.Head then
-						maxangle = an
-						aimatpart = v
-						print(v:GetFullName())
-						v.Parent.Humanoid.Died:connect(function()
-							aimatpart = nil
-						end)
-					end
+	if raycast == true and switch == false and not aimatpart then
+		getaimbotplrs()
+		aimatpart = nil
+		local maxangle = 999
+		for i, v in ipairs(plrsforaim) do
+			if v.Parent ~= lplr.Character then
+				local an = checkfov(v)
+				if an < maxangle and v ~= lplr.Character.Head then
+					maxangle = an
+					aimatpart = v
+					print(v:GetFullName())
+					v.Parent.Humanoid.Died:connect(function()
+						aimatpart = nil
+					end)
 				end
 			end
-
+		end
 	end
 end)
 delay(0, function()
 	while wait(espupdatetime) do
 		if autoesp == true then
 			pcall(function()
-			f.addesp()
+				f.addesp()
 			end)
 		end
 	end
