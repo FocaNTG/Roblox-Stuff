@@ -7,14 +7,11 @@ The Nya hub is still under construction and will receive substantial updates. No
 Place the following code into your scripting environment & execute it to load the second UI:
 
 ```lua
-local mercury = true
-if mercury then
-  print('mercury #1 is selected')
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/FocaNTG/Robloz-Hax/main/ui2.lua"))() 
-else
-  print('wally #1 is selected')
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/FocaNTG/Robloz-Hax/main/ui1.lua"))()
-end
+local useMercuryLib = true
+
+loadstring(game:HttpGet(
+	useMercuryLib and 'https://raw.githubusercontent.com/FocaNTG/Robloz-Hax/main/ui2.lua' or
+	'https://raw.githubusercontent.com/FocaNTG/Robloz-Hax/main/ui1.lua'))() 
 ```
 
 ---
