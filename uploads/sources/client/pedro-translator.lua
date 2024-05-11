@@ -1,6 +1,4 @@
-pcall(function()
-  loadstring(
-      --[[
+--[==[
 
       ░░░░░██╗  ███╗░░░███╗███████╗███╗░░░███╗███████╗
       ░░░░░██║  ████╗░████║██╔════╝████╗░████║██╔════╝
@@ -9,23 +7,16 @@ pcall(function()
       ╚█████╔╝  ██║░╚═╝░██║███████╗██║░╚═╝░██║███████╗
       ░╚════╝░  ╚═╝░░░░░╚═╝╚══════╝╚═╝░░░░░╚═╝╚══════╝
 
+Keybinds:
 
-      Keybind:
-     
-      - Semicolon // To trigger chat box
-      - Enter // To submit your chat
-      - Click on player chat // To view his translation
-      - Quote // To hide/show UI
-     
-      Next Update:
-     
-      - Ill make it so it auto detects language of chat upon click
-      - yes thats it
-      --]]
+	- [; (Semicolon)] Triggers Chat Box
+	- [↵ (Enter / Return)] Submit Chat Message
+	- [Click on Message] View translation
+	- [' (Quote)] Toggle UI visibility
+]==]
 
-      game:HttpGet(
-          'https://raw.githubusercontent.com/PivotEngine/cool_scripts/main/Pedro.exe',
-          true
-      )
-  )();
-end)
+--- @diagnostic disable: undefined-global, deprecated
+
+if _VERSION == 'Luau' and type(game.HttpGet) == 'function' then
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/AimLock-New/Pedro.exe/main/Pedro.exe.lua?nocache=true'))()
+end

@@ -1,3 +1,5 @@
+--- @diagnostic disable: undefined-global
+
 local FLEE_THE_FACILITY_REVAMPED_GUI = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
 local title = Instance.new("TextLabel")
@@ -141,11 +143,12 @@ exit.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 exit.TextStrokeTransparency = 0.000
 exit.TextWrapped = true
 
-local mapNames = {"Facility_0 by MrWindy","Abandoned Facility by iiGalaxyKoala, Vexhins, and cyrda","Abandoned Prison by AtomixKing and Duck_Ify","Homestead by MrWindy","Airport by deadlybones28"}
+local mapNames = { "Facility_0 by MrWindy", "Abandoned Facility by iiGalaxyKoala, Vexhins, and cyrda",
+	"Abandoned Prison by AtomixKing and Duck_Ify", "Homestead by MrWindy", "Airport by deadlybones28" }
 local currMap = nil
 spawn(function()
 	while wait() do
-		for _,v in pairs(workspace:GetChildren()) do
+		for _, v in pairs(workspace:GetChildren()) do
 			for i = 1, #mapNames do
 				if v.Name == mapNames[i] then
 					currMap = mapNames[i]
@@ -167,7 +170,7 @@ end)
 MainFrame.tptauc.MouseButton1Click:Connect(function()
 	if workspace:FindFirstChild(currMap) then
 		local pc
-		for _,v in pairs(workspace:FindFirstChild(currMap):GetChildren()) do
+		for _, v in pairs(workspace:FindFirstChild(currMap):GetChildren()) do
 			if v.Name == "ComputerTable" then
 				if v.Screen.BrickColor ~= BrickColor.new("Dark green") then
 					pc = v
@@ -178,23 +181,31 @@ MainFrame.tptauc.MouseButton1Click:Connect(function()
 		if pc:FindFirstChild("ClearWall") then
 			pc.ClearWall.CanCollide = false
 		end
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pc.BasePart.Position.X, pc.BasePart.Position.Y + 6, pc.BasePart.Position.Z)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pc.BasePart.Position.X,
+			pc.BasePart.Position.Y + 6, pc.BasePart.Position.Z)
 	end
 end)
 MainFrame.tpaftb.MouseButton1Click:Connect(function()
 	if workspace:FindFirstChild(currMap) then
 		workspace:FindFirstChild(currMap):FindFirstChild("FreezePod"):GetChildren().CanCollide = false
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(workspace:FindFirstChild(currMap):FindFirstChild("FreezePod").BasePart.Position.X, workspace:FindFirstChild(currMap):FindFirstChild("FreezePod").BasePart.Position.Y + 3, workspace:FindFirstChild(currMap):FindFirstChild("FreezePod").BasePart.Position.Z)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(
+		workspace:FindFirstChild(currMap):FindFirstChild("FreezePod").BasePart.Position.X,
+			workspace:FindFirstChild(currMap):FindFirstChild("FreezePod").BasePart.Position.Y + 3,
+			workspace:FindFirstChild(currMap):FindFirstChild("FreezePod").BasePart.Position.Z)
 	end
 end)
 MainFrame.tptae.MouseButton1Click:Connect(function()
 	if workspace:FindFirstChild(currMap) then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(workspace:FindFirstChild(currMap):FindFirstChild("ExitDoor").Light.Position.X, workspace:FindFirstChild(currMap):FindFirstChild("ExitDoor").Light.Position.Y - 4.5, workspace:FindFirstChild(currMap):FindFirstChild("ExitDoor").Light.Position.Z)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(
+		workspace:FindFirstChild(currMap):FindFirstChild("ExitDoor").Light.Position.X,
+			workspace:FindFirstChild(currMap):FindFirstChild("ExitDoor").Light.Position.Y - 4.5,
+			workspace:FindFirstChild(currMap):FindFirstChild("ExitDoor").Light.Position.Z)
 	end
 end)
 MainFrame.tptlp.MouseButton1Click:Connect(function()
 	if workspace:FindFirstChild(MainFrame.playernamebox.Text) then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(workspace:FindFirstChild(MainFrame.playernamebox.Text).HumanoidRootPart.Position)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(workspace:FindFirstChild(MainFrame
+		.playernamebox.Text).HumanoidRootPart.Position)
 	end
 end)
 MainFrame.exit.MouseButton1Click:Connect(function()
